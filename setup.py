@@ -28,6 +28,7 @@ setup(
     entry_points = {
         'console_scripts': [
             'mutt-aliases = muttpy.aliases:main',
+            'mutt-calendar = muttpy.calendar:main',
         ]
     },
     classifiers = [

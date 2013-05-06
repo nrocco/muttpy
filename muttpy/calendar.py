@@ -1,11 +1,13 @@
-#!/usr/bin/env python
+import vobject
+import argparse
+import sys
+
+
+
 #https://bitbucket.org/sterlingcamden/remindwhen/src/8f88bbb1bc3e8a02098895a3c6b7e3acf27ff4c7/icalrespond.rb?at=default
 #text/calendar; open -a /Applications/iCal.app %s; needsterminal; nametemplate=%s.ics
 #application/ics; open -a /Applications/iCal.app %s; needsterminal; nametemplate=%s.ics
 
-import vobject
-import argparse
-import sys
 
 def read_invition_from(file):
     f = open(file, 'r')
@@ -13,8 +15,9 @@ def read_invition_from(file):
     f.close()
     return event
 
-if "__main__" == __name__:
-    parser = argparse.ArgumentParser(description='View an event.')
+
+def main():
+    parser = argparse.ArgumentParser(prog='mutt-calendar', description='View an event')
     parser.add_argument('event')
     args = parser.parse_args()
 
@@ -52,3 +55,7 @@ if "__main__" == __name__:
 
     if 'description' in event.contents:
         print '\n', event.description.value.encode('utf-8').strip()
+
+
+if "__main__" == __name__:
+    main()
