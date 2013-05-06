@@ -16,8 +16,6 @@ setup(
     include_package_data = True,
     install_requires = [
         'caldav==0.1.12',
-        'lxml==3.1.0',
-        'nose==1.2.1',
         'python-dateutil==1.1',
         'python-ldap==2.4.10',
         'vobject==0.8.1c'
