@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-from muttpy.aliases import DESC, VERSION
+from muttpy import VERSION
 
 setup(
     name = 'muttpy',
@@ -12,7 +12,8 @@ setup(
     url = 'http://nrocco.github.io/',
     author = 'Nico Di Rocco',
     author_email = 'dirocco.nico@gmail.com',
-    description = DESC,
+    description = 'A collection of command line scripts written '
+                  'in Python for mutt (and davmail)',
     include_package_data = True,
     install_requires = [
         'caldav==0.1.12',

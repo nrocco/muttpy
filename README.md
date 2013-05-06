@@ -18,3 +18,9 @@ usage
 See the help for `mutt-aliases`
 
     $ mutt-aliases --help
+
+
+To see the help for `mutt-calendar`
+
+    $ mutt-calendar --help
+
