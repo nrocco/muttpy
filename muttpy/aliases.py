@@ -137,25 +137,10 @@ def get_ldap_results_for(query, host, user, password, base):
 
 
 
+def parse_cli_arguments():
+    from muttpy import get_argparser_instance
 
-def main():
-    import sys
-    from argparse import ArgumentParser
-    from ConfigParser import ConfigParser
-
-    conf_parser = ArgumentParser(add_help=False)
-    conf_parser.add_argument('-c', '--config', help='Path to a config file.')
-    args, remaining_argv = conf_parser.parse_known_args()
-
-    config = ConfigParser()
-    config.read(os.path.expanduser(args.config or DEFAULT_CONFIG))
-    defaults = dict(config.items(ID)) if config.has_section(ID) else {}
-
-    parser = ArgumentParser(parents=[conf_parser], prog=ID, description=DESC)
-    parser.add_argument('-v', '--verbose', action='count',
-                        default=0, help='Output more verbose')
-    parser.add_argument('-q', '--quiet', action='store_true',
-                        help='Surpress all output')
+    parser, argv = get_argparser_instance(prog=ID, description=DESC)
     parser.add_argument('-e', '--endpoint', metavar='endpoint',
                         help='The ldap endpoint to query')
     parser.add_argument('-u', '--username', metavar='username',
@@ -166,22 +151,17 @@ def main():
                         dest='cache_db',
                         default=None,
                         metavar='path/to/cache.db',
-                        help='Location of the cache database'
-    )
+                        help='Location of the cache database')
     parser.add_argument('query',
                         nargs='+',
                         help='Name or email to lookup. If the query '
                              'contains a `!!` you can skip the cache and '
-                             'force a lookup agains the ldap directory.'
-    )
-    parser.set_defaults(**defaults)
-    args = parser.parse_args(remaining_argv)
-
-    loglevel = 100 if args.quiet else max(30 - args.verbose * 10, 10)
-    logging.basicConfig(level=loglevel, format='%(message)s')
+                             'force a lookup agains the ldap directory.')
+    return parser.parse_args(argv)
 
 
-    # Do the actual stuff
+def main():
+    args = parse_cli_arguments()
 
     if args.cache_db:
         log.info('Using %s for caching results' % args.cache_db)
