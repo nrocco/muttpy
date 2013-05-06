@@ -1,0 +1,7 @@
+caldav==0.1.12
+-e git+https://github.com/nrocco/ldapper#egg=ldapper
+lxml==3.1.0
+nose==1.2.1
+python-dateutil==1.1
+python-ldap==2.4.10
+vobject==0.8.1c
