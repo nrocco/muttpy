@@ -24,3 +24,6 @@ To see the help for `mutt-calendar`
 
     $ mutt-calendar --help
 
+To see the help for `mutt-email`
+
+    $ mutt-email --help

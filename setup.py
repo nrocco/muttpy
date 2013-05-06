@@ -28,6 +28,7 @@ setup(
         'console_scripts': [
             'mutt-aliases = muttpy.aliases:main',
             'mutt-calendar = muttpy.calendar:main',
+            'mutt-email = muttpy.emails:main',
         ]
     },
     classifiers = [
