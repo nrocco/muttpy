@@ -149,7 +149,6 @@ def parse_cli_arguments():
                         help='The password to login with')
     parser.add_argument('-d', '--cache-db',
                         dest='cache_db',
-                        default=None,
                         metavar='path/to/cache.db',
                         help='Location of the cache database')
     parser.add_argument('query',
