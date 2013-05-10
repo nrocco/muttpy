@@ -9,7 +9,7 @@ installation
 
 Install the package using `pip` directly from github
 
-    $ pip install pip install https://github.com/nrocco/muttpy/tarball/master#egg=muttpy-dev
+    $ pip install https://github.com/nrocco/muttpy/tarball/master#egg=muttpy-dev
 
 
 usage
