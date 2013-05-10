@@ -3,19 +3,18 @@ import os
 import logging
 import ldap
 
+from muttpy import VERSION, DEFAULT_CONFIG
 from ldapper.clients import LdapClient
 
 
 
 log = logging.getLogger(__name__)
 
-ID = 'mutt-aliases'
-VERSION = '1.0'
-
-DEFAULT_CONFIG = '~/.%src' % ID
+PROG = 'mutt-aliases'
 DESC = '''Query an external LDAP directory and optionally cache the
 results locally. As an alternative to provide command line options
-you can create a file in %s in your home directory.''' % DEFAULT_CONFIG
+you can create a file `%s` and place your default settings in a
+section with the name %s.''' % (DEFAULT_CONFIG, PROG)
 
 
 
@@ -137,10 +136,11 @@ def get_ldap_results_for(query, host, user, password, base):
 
 
 
-def parse_cli_arguments():
-    from muttpy import get_argparser_instance
 
-    parser, argv = get_argparser_instance(prog=ID, description=DESC)
+def main():
+    import pycli
+    parser = pycli.get_argparser(prog=PROG, version=VERSION,
+                                 default_config=DEFAULT_CONFIG, description=DESC)
     parser.add_argument('-e', '--endpoint', metavar='endpoint',
                         help='The ldap endpoint to query')
     parser.add_argument('-u', '--username', metavar='username',
@@ -156,11 +156,7 @@ def parse_cli_arguments():
                         help='Name or email to lookup. If the query '
                              'contains a `!!` you can skip the cache and '
                              'force a lookup agains the ldap directory.')
-    return parser.parse_args(argv)
-
-
-def main():
-    args = parse_cli_arguments()
+    args = parser.parse_args()
 
     if args.cache_db:
         log.info('Using %s for caching results' % args.cache_db)

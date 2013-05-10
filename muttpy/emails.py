@@ -1,10 +1,10 @@
 import logging
 from email.parser import Parser
+from muttpy import VERSION, DEFAULT_CONFIG
 
 
 
 log = logging.getLogger(__name__)
-
 
 PROG = 'mutt-email'
 DESC = 'Process Maildir formatted emails'
@@ -27,16 +27,16 @@ def list_all_emails(args):
     print '\n'.join(addresses)
 
 
-def parse_cli_arguments():
-    from muttpy import get_argparser_instance
-    parser, argv = get_argparser_instance(prog=PROG, description=DESC)
-    parser.add_argument('email', nargs=1)
-    parser.set_defaults(func=list_all_emails)
-    return parser.parse_args(argv)
 
 
 def main():
-    args = parse_cli_arguments()
+    import pycli
+    parser = pycli.get_argparser(prog=PROG, version=VERSION,
+                                 default_config=DEFAULT_CONFIG, description=DESC)
+    parser.add_argument('email', nargs=1)
+    parser.set_defaults(func=list_all_emails)
+    args = parser.parse_args()
+
     try:
         args.func(args)
     except Exception as e:

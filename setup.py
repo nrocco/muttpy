@@ -19,10 +19,13 @@ setup(
         'caldav==0.1.12',
         'python-dateutil==1.1',
         'python-ldap==2.4.10',
-        'vobject==0.8.1c'
+        'vobject==0.8.1c',
+        'pycli',
+        'ldapper'
     ],
     dependency_links = [
         'https://github.com/nrocco/ldapper/tarball/master#egg=ldapper-dev',
+        'https://github.com/nrocco/pycli/tarball/master#egg=pycli-dev'
     ],
     entry_points = {
         'console_scripts': [

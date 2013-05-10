@@ -1,10 +1,10 @@
 import vobject
 import logging
+from muttpy import VERSION, DEFAULT_CONFIG
 
 
 
 log = logging.getLogger(__name__)
-
 
 PROG = 'mutt-calendar'
 DESC = 'Work with calendar items.'
@@ -60,9 +60,12 @@ def get_event_organizer(args):
     print event.organizer.value.replace('MAILTO:','').replace('mailto:','').strip(),
 
 
-def parse_cli_arguments():
-    from muttpy import get_argparser_instance
-    parser, argv = get_argparser_instance(prog=PROG, description=DESC)
+
+
+def main():
+    import pycli
+    parser = pycli.get_argparser(prog=PROG, version=VERSION,
+                                 default_config=DEFAULT_CONFIG, description=DESC)
     subparsers = parser.add_subparsers()
 
     parser_a = subparsers.add_parser('show', help='show event')
@@ -72,12 +75,8 @@ def parse_cli_arguments():
     parser_b = subparsers.add_parser('organizer', help='get event organizer')
     parser_b.add_argument('event')
     parser_b.set_defaults(func=get_event_organizer)
+    args = parser.parse_args()
 
-    return parser.parse_args(argv)
-
-
-def main():
-    args = parse_cli_arguments()
     try:
         args.func(args)
     except Exception as e:
