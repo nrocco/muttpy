@@ -30,8 +30,8 @@ def list_all_emails(args):
 
 
 def main():
-    import pycli
-    parser = pycli.get_argparser(prog=PROG, version=VERSION,
+    from pycli_tools import get_argparser
+    parser = get_argparser(prog=PROG, version=VERSION,
                                  default_config=DEFAULT_CONFIG, description=DESC)
     parser.add_argument('email', nargs=1)
     parser.set_defaults(func=list_all_emails)

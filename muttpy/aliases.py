@@ -138,8 +138,8 @@ def get_ldap_results_for(query, host, user, password, base):
 
 
 def main():
-    import pycli
-    parser = pycli.get_argparser(prog=PROG, version=VERSION,
+    from pycli_tools import get_argparser
+    parser = get_argparser(prog=PROG, version=VERSION,
                                  default_config=DEFAULT_CONFIG, description=DESC)
     parser.add_argument('-e', '--endpoint', metavar='endpoint',
                         help='The ldap endpoint to query')
