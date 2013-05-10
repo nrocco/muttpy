@@ -24,8 +24,8 @@ setup(
         'ldapper'
     ],
     dependency_links = [
+        'https://github.com/nrocco/pycli-tools/tarball/master#egg=pycli',
         'https://github.com/nrocco/ldapper/tarball/master#egg=ldapper-dev',
-        'https://github.com/nrocco/pycli/tarball/master#egg=pycli-dev'
     ],
     entry_points = {
         'console_scripts': [
