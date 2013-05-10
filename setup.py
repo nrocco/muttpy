@@ -20,11 +20,11 @@ setup(
         'python-dateutil==1.1',
         'python-ldap==2.4.10',
         'vobject==0.8.1c',
-        'pycli',
+        'pycli_tools',
         'ldapper'
     ],
     dependency_links = [
-        'https://github.com/nrocco/pycli-tools/tarball/master#egg=pycli',
+        'https://github.com/nrocco/pycli-tools/tarball/master#egg=pycli_tools-dev',
         'https://github.com/nrocco/ldapper/tarball/master#egg=ldapper-dev',
     ],
     entry_points = {
