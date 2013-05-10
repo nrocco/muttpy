@@ -9,7 +9,7 @@ installation
 
 Install the package using `pip` directly from github
 
-    $ pip install https://github.com/nrocco/muttpy/tarball/master#egg=muttpy-dev
+    $ pip install https://github.com/nrocco/muttpy/archive/master.zip#egg=muttpy-dev
 
 
 usage
@@ -23,6 +23,7 @@ See the help for `mutt-aliases`
 To see the help for `mutt-calendar`
 
     $ mutt-calendar --help
+
 
 To see the help for `mutt-email`
 
