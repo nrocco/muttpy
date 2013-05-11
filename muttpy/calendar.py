@@ -1,6 +1,6 @@
 import vobject
 import logging
-from muttpy import VERSION, DEFAULT_CONFIG
+from muttpy import __version__, DEFAULT_CONFIG
 
 
 
@@ -64,7 +64,7 @@ def get_event_organizer(args):
 
 def main():
     from pycli_tools import get_argparser
-    parser = get_argparser(prog=PROG, version=VERSION,
+    parser = get_argparser(prog=PROG, version=__version__,
                                  default_config=DEFAULT_CONFIG, description=DESC)
     subparsers = parser.add_subparsers()
 

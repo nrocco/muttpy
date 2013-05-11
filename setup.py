@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-from muttpy import VERSION
+import muttpy
 
 setup(
     name = 'muttpy',
-    version = VERSION,
+    version = muttpy.__version__,
     packages = [
         'muttpy'
     ],
     url = 'http://nrocco.github.io/',
-    author = 'Nico Di Rocco',
+    download_url = 'https://github.com/nrocco/muttpy',
+    author = muttpy.__author__,
     author_email = 'dirocco.nico@gmail.com',
     description = 'A collection of command line scripts written '
                   'in Python for mutt (and davmail)',
@@ -24,7 +25,6 @@ setup(
         'ldapper'
     ],
     dependency_links = [
-        'https://github.com/nrocco/pycli-tools/tarball/master#egg=pycli_tools-dev',
         'https://github.com/nrocco/ldapper/tarball/master#egg=ldapper-dev',
     ],
     entry_points = {

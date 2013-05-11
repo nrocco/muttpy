@@ -1,6 +1,6 @@
 import logging
 from email.parser import Parser
-from muttpy import VERSION, DEFAULT_CONFIG
+from muttpy import __version__, DEFAULT_CONFIG
 
 
 
@@ -31,7 +31,7 @@ def list_all_emails(args):
 
 def main():
     from pycli_tools import get_argparser
-    parser = get_argparser(prog=PROG, version=VERSION,
+    parser = get_argparser(prog=PROG, version=__version__,
                                  default_config=DEFAULT_CONFIG, description=DESC)
     parser.add_argument('email', nargs=1)
     parser.set_defaults(func=list_all_emails)

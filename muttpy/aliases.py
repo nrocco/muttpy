@@ -3,7 +3,7 @@ import os
 import logging
 import ldap
 
-from muttpy import VERSION, DEFAULT_CONFIG
+from muttpy import __version__, DEFAULT_CONFIG
 from ldapper.clients import LdapClient
 
 
@@ -139,7 +139,7 @@ def get_ldap_results_for(query, host, user, password, base):
 
 def main():
     from pycli_tools import get_argparser
-    parser = get_argparser(prog=PROG, version=VERSION,
+    parser = get_argparser(prog=PROG, version=__version__,
                                  default_config=DEFAULT_CONFIG, description=DESC)
     parser.add_argument('-e', '--endpoint', metavar='endpoint',
                         help='The ldap endpoint to query')
