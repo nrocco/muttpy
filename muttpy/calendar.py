@@ -63,7 +63,7 @@ def get_event_organizer(args):
 
 
 def main():
-    from pycli_tools import get_argparser
+    from pycli_tools.parsers import get_argparser
     parser = get_argparser(prog=PROG, version=__version__,
                                  default_config=DEFAULT_CONFIG, description=DESC)
     subparsers = parser.add_subparsers()

@@ -15,17 +15,16 @@ setup(
     author_email = 'dirocco.nico@gmail.com',
     description = 'A collection of command line scripts written '
                   'in Python for mutt (and davmail)',
+    long_description = open('README.rst').read(),
+    license = open('LICENSE').read(),
     include_package_data = True,
     install_requires = [
         'caldav==0.1.12',
+        'ldapper==0.8.3',
+        'pycli_tools==1.5',
         'python-dateutil==1.1',
         'python-ldap==2.4.10',
-        'vobject==0.8.1c',
-        'pycli_tools',
-        'ldapper'
-    ],
-    dependency_links = [
-        'https://github.com/nrocco/ldapper/tarball/master#egg=ldapper-dev',
+        'vobject==0.8.1c'
     ],
     entry_points = {
         'console_scripts': [
