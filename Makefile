@@ -54,7 +54,7 @@ pull:
 
 # Push to github but run tests first
 .PHONY: push
-push: test
+push:
 	git push origin HEAD
 	git push origin --tags
 
