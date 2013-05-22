@@ -20,7 +20,7 @@ setup(
     include_package_data = True,
     install_requires = [
         'caldav==0.1.12',
-        'ldapper==0.8.3',
+        'ldapper==0.8.4',
         'pycli_tools==1.5',
         'python-dateutil==1.1',
         'python-ldap==2.4.10',
