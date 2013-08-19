@@ -21,7 +21,7 @@ setup(
     install_requires = [
         'caldav==0.1.12',
         'ldapper==0.8.4',
-        'pycli_tools==1.5',
+        'pycli-tools>=1.6.0',
         'python-dateutil==1.1',
         'python-ldap==2.4.10',
         'vobject==0.8.1c'
